@@ -1,7 +1,7 @@
 '''
 Functions to calculate similarity
 between two strings based on NLP
-model
+model in simpletransformers
 '''
 
 from functools import lru_cache
