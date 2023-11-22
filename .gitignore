@@ -2,3 +2,4 @@
 # python stuff
 /cache
 __pycache__
+/pip_cache

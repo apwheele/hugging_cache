@@ -17,9 +17,7 @@ jobs:
           cache: 'pip'
           cache-dependency-path: |
             pip_cache
-      - run: |
-        # trying to explicitly set cache location
-        pip install -r requirements.txt --cache-dir ./pip_cache
+      - run: pip install -r requirements.txt --cache-dir "./pip_cache"
       - name: Cached models
         id: cache-mods
         uses: actions/cache@v3
