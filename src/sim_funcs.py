@@ -2,8 +2,6 @@
 Functions to calculate similarity
 between two strings based on NLP
 model in simpletransformers
-
-trivial change to force cache redo
 '''
 
 from functools import lru_cache

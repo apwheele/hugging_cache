@@ -23,7 +23,7 @@ jobs:
           path: cache
           key: ${{runner.os}}-huggingmodel
       - name: Force download
-        if: steps.cache-mods.outputs.cache-hit != 'false'
+        if: steps.cache-mods.outputs.cache-hit != 'true'
         run: |
           # here code to force download of model
           python -c "from src import sim_funcs"
