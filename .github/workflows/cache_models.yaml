@@ -10,17 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: 3.9
           cache: 'pip'
-      - run: pip install -r requirements.txt
+          cache-dependency-path: |
+            pip_cache
+      - run: |
+        # trying to explicitly set cache location
+        pip install -r requirements.txt --cache-dir ./pip_cache
       - name: Cached models
         id: cache-mods
         uses: actions/cache@v3
         with:
-          path: cache
+          path: cache_mod
           key: ${{runner.os}}-huggingmodel
       - name: Force download
         if: steps.cache-mods.outputs.cache-hit != 'true'

@@ -2,6 +2,8 @@
 Functions to calculate similarity
 between two strings based on NLP
 model in simpletransformers
+
+trivial change
 '''
 
 from functools import lru_cache
@@ -13,7 +15,7 @@ import torch
 
 cuda_available = torch.cuda.is_available()
 
-cache_loc = "./cache"
+cache_loc = "./cache_mod"
 if os.path.exists(cache_loc):
     print('Cache exists, loading pre-downloaded model')
 else:
