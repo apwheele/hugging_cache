@@ -9,6 +9,9 @@ import numpy as np
 import os
 import pandas as pd
 from simpletransformers.language_representation import RepresentationModel
+import torch
+
+cuda_available = torch.cuda.is_available()
 
 cache_loc = "./cache"
 if os.path.exists(cache_loc):
@@ -16,7 +19,7 @@ if os.path.exists(cache_loc):
 else:
     print('Cache does not exist, downloading model')
 
-model = RepresentationModel("bert","ProsusAI/finbert",cache_dir=cache_loc)
+model = RepresentationModel("bert","ProsusAI/finbert",cache_dir=cache_loc,use_cuda=cuda_available)
 
 # memoizing this part, much more expensize than norm
 @lru_cache
